@@ -1,0 +1,178 @@
+<html>
+    <title>
+        run ocr
+    </title>
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="mainstyle.css">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="jquery-3.4.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <style>
+          .image-preview{
+            min-width: 500px;
+            min-height: 400px;
+            border: 2px solid #a1a1a1;
+            display: flex;
+            align-content: center;
+            margin-left: 45%;
+            margin-top: 1rem;
+            text-align: center;
+          /*default text*/
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-weight:bold;
+          color: #4e4d4d;
+          }
+
+          .navbar-brand{
+          max-width: 4rem;
+          max-height: 4rem;
+          }
+
+          .image-preview__image{
+            display: none;
+            width: 100%;
+            align-content: center;
+          }
+
+          .select{
+              text-align: center;
+             padding-top: 1rem;
+             padding-bottom: 0rem;
+             color: rgb(97, 95, 94);
+              font-size: 3rem;
+              font-family: 'Times New Roman', Times, serif;
+
+          }
+
+          .block{
+            float: left;
+            text-align: center;
+          }
+
+         
+      </style>
+
+    </head>
+
+    <body>
+            
+    <nav class="navbar navbar-custom navbar-inverse navbar-expand-md navbar-dark sticky-top "> 
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="img-fluid" src="images/Icon-OCR-blue.png"></a> 
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon">
+
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="home.html">HOME</a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link" href="#">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">LOGIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="runocr.html">OCR</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">SUPPORT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CONNECT</a>
+            </li>             
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <h3 class="select" style="text-align: center; margin-left: 10%;"><b> Select the domain of your Text </b></h3>
+    <hr>
+    <div class="container-fluid " style="text-align: center;">
+    	<div class="block" style=" width: 50% auto; color: #ffffff; background-color: #1a2b31; margin-left: 33%;">	     
+		<form method="post" action="ocr.py" style="align-items: center;">
+            <div style="margin-left:10%;margin-top:4%; font-family:'Times New Roman', Times, serif;">
+                
+                <label class="container">
+                    <input type="radio" name="radio" value="1" onclick="radiovalue(this.value)" required><span style="font-size:26px;">Effects of computer on people</span></input><br><br>
+                <span class="checkmark"></span>
+                </label>
+
+                <label class="container">
+                    <input type="radio" name="radio" value="2" onclick="radiovalue(this.value)" required><span style="font-size:26px;">Cencorship in library</span></input><br><br>
+                <span class="checkmark"></span>
+                </label>
+
+            
+            <label class="container">
+                <input type="radio" name="radio" value="3" onclick="radiovalue(this.value)" required><span style="font-size:26px;">Features effecting the cyclist</span></input><br><br>
+                <span class="checkmark"></span>
+            </label>
+
+
+            <label class="container">
+              <input type="radio" name="radio" value="4" onclick="radiovalue(this.value)" required><span style="font-size:26px;">Language conventions</span></input><br><br>
+          <span class="checkmark"></span>
+          </label>
+
+            <label class="container"> 
+                <input type="radio" name="radio" value="5" onclick="radiovalue(this.value)" required><span style="font-size:26px;">Mood created by author</span></input><br><br>
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">
+              <input type="radio" name="radio" value="6" onclick="radiovalue(this.value)" required><span style="font-size:26px;">Obstacles of the builder</span></input><br><br>
+          <span class="checkmark"></span>
+          </label>
+
+            <label class="container">               
+                <input type="radio" name="radio" value="7" onclick="radiovalue(this.value)" required><span style="font-size:26px;">Patience</span></input><br><br>
+                <span class="checkmark"></span>
+            </label>
+
+
+            <label class="container">
+              <input type="radio" name="radio" value="8" onclick="radiovalue(this.value)" required><span style="font-size:26px;">Benefits of laughter</span></input><br><br>
+            <span class="checkmark"></span>
+            </label>
+
+            </div>
+          
+          </form>
+  </div>
+
+<div class="block">
+    <a href="runocr.html"><button style="padding-top: 22rem;padding-bottom: 22rem; padding-right: 10%;padding-left: 10%;" type="button" class="btn btn-danger btn-lg">SUBMIT</button>
+  </div>
+    
+</div>
+    </body>
+<script type="text/javascript" src="/eel.js"></script>
+<script type="text/javascript">
+
+  function radiovalue(val){
+    console.log(val);
+    window.localStorage.setItem("essayno",val);
+    eel.setnum(val);
+
+}
+</script>
+
+</html>

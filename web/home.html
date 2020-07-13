@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="mainstyle.css">
+    <link rel="stylesheet" type="text/css" href="chat.css">
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!--navigation bar-->
+    
+    <title>Frontend</title>
+  </head>
+  <body>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <nav class="navbar navbar-custom navbar-inverse navbar-expand-md navbar-dark  sticky-top "> 
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="img-fluid" src="/images/Icon-OCR-blue.png"></a> 
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon">
+
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" style="color: #ffffff;" href="#">HOME</a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link" href="#">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">LOGIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="runocr.html">OCR</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">SUPPORT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CONNECT</a>
+            </li>             
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!--images sliders-->
+    
+    <div id="slides" class="carousel slides" data-ride="carousel">
+      <ul class="carousel-indicators">
+        <li data-target="#slides" data-slide-to="0" class="active"></li>
+        <li data-target="#slides" data-slide-to="1" class="active"></li>
+        <li data-target="#slides" data-slide-to="2" class="active"></li>
+      </ul>
+      <div class="container-fluid">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="img-fluid" src="/images/moleskine-notebook-1300x450.jpg">
+          <div class="carousel-caption carousel-caption-fluid">
+            <h1 class="display-2" >AEVA</h1>
+            <h3>SELECT ONE</h3>
+            <a href="topic.html"><button type="button" class="btn btn-danger btn-lg" style="color: rgb(255, 255, 255);">Run AEVA</button></a>
+            <a href="#"> <button type="button" onclick="open_chat(); set_time();" class="btn btn-outline-dark btn-lg" style="color: rgb(8, 7, 7);">SAY HI!</button></a>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img class="img-fluid"  src="/images/kts-bookkeeping-1300x450.jpg">
+          <div class="carousel-caption carousel-caption-fluid">
+            <h1 class="display-2">AEVA</h1>
+            <h3>SELECT ONE</h3>
+            <a href="topic.html"><button type="button" class="btn btn-danger btn-lg" style="color: rgb(255, 255, 255);">Run AEVA</button></a>
+            <a href="#"> <button type="button" onclick="open_chat(); set_time();" class="btn btn-outline-dark btn-lg" style="color: rgb(8, 7, 7);">SAY HI!</button></a>
+          </div>
+        </div>
+     
+         <div class="carousel-item">
+          <img class="img-fluid" src="/images/RG-Sliders-1300X450-Game2.jpg">
+          <div class="carousel-caption carousel-caption-fluid">
+            <h1 class="display-2">AEVA</h1>
+            <h3>SELECT ONE</h3>
+            <a href="topic.html"><button type="button" class="btn btn-danger btn-lg" style="color: rgb(255, 255, 255);">Run AEVA</button></a>
+            <a href="#"> <button type="button" onclick="open_chat()" class="btn btn-outline-dark btn-lg" style="color: rgb(8, 7, 7);">SAY HI!</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Left and right controls -->
+
+  <a class="carousel-control-prev" href="#slides" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#slides" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+      
+    </div>
+
+
+
+<!--CHATBOT-->
+
+<div id="chat-container" class = "msg_box" style="display: none;">
+    <div class="msg_head">AEVA Assistant
+        <div class="close" style="color: #fff; opacity: 1; width: 1rem;" ><a onclick="closechat()">x</a></div>
+	</div>
+    
+    <div id="chat-message-list">
+        <div class="message-row you-message" style="display: none;">
+            <div class="message-content">
+                <div class="message-text abc"  id="user">ok then</div>
+                <div class="message-time">june 12</div>
+            </div>
+        </div>
+        <div class="message-row other-message" >
+            <div class="message-content">
+                <div class="message-text abc" id="machine" style="display: none;">Welcome
+                </div>
+                <div class="message-time" id="mtime"></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="ref"></div>
+
+    <div id="chat-form">
+        <input type="text" id="query" placeholder="Type a message">
+
+        <a type="submit" onclick="clone();" href="#"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></a>
+        
+    </div>
+</div>
+
+    <!--jumbotron-->
+
+    <div class="container-fluid">
+      <div class="row jumbotron">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+          <p class="lead"> This is our web application for online handwritten text assessment and can be used in a variety of places.</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-xl-2">
+          <a href="#"><button type="button" class="btn btn-dark btn-lg">OUR SCOPE</button></a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <!--welcome section-->
+    <div class="container-fluid padding">
+      <div class="row welcome text-center">
+        <div class="col-12">
+          <h1 class="display-4" style="color: black; font-family: Times;">Corrected with ease.</h1>
+        </div>
+
+        <hr style="width:50%; height: 20px; color:red;">
+
+        <div class="col-12">
+          <p class="lead"> This is an automatic marks alottment web application in which we just scan the text and get answers evaluated. Tis is developed mainly by kapil and team and will be soon implemented in vtu for real tme evaluation</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <!--three coloumn section-->
+    
+    <div class="container-fluid padding">
+      <div class="row text-center padding">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <i class="fas fa-code fa-4x" style="color: red"></i>
+          <h3 style="font-family: Lucida Console; font-style: bold;">HTML5</h3>
+          <p>Buil with latest version,HTML5</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <i class="fas fa-bold fa-4x" style="color: purple"></i>
+          <h3 style="font-family: Lucida Console; font-style: bold;">BOOTSTRAP</h3>
+          <p>Buil with latest version, BOOTSTRAP4</p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <i class="fab fa-python fa-4x" style="color: yellow"></i>
+          <h3 style="font-family: Lucida Console; font-style: bold;">PYTHON</h3>
+          <p >Built with latest version, Python3</p>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <!--description of the project with image-->
+    
+    <hr style="width: 50%; height: 10pt; padding: 10px;">
+    <br>
+    <div class="container-fluid padding">
+      <div class="row padding" style="padding-left: 3rem;">
+        <div class="col-lg-6">
+          <h2 style="font-family: Licida Console; font-style: bold;padding-left: 6rem; font-size: 250%; font-style: italic;"> <span id="aeva">A</span>utomated <span id="aeva">EVA</span>luater</h2>
+          <hr style="width: 75%">
+          <p style="right: 100%; font-size: 18px;">This system is an extension of digitization of answer sheets. In this system, along with
+            digitization of answer sheets, even valuation is done by the system itself. The architecture
+            of our project has three main components, OCR, Text Analyzer and Chatbot. All three
+            components have its own significance and purpose to include in this project. This project
+            is the complete design of shifting manual evaluation process to its digitalized form.
+            The first technology of this project is OCR, which is used to scan the handwritten
+            text to its equivalent digitalized text document. Manual Data Collection from a student&#39;s
+            exam sheets is always a tedious job which exacts ample amount of time and effort. This
+            image is processed by proposed robust extraction and noise removal algorithm adaptive to
+            environmental conditions. It is then passed through Optical Character Recognition (OCR)
+            system which extracts characters using correlation. Accuracy of system depends on the
+            sample space size of OCR system.After taking digitalized data from the manual answer sheet, which is done by
+            OCR, evaluating subjective answer is a critical task to perform. Since subjective answers
+            have various parameters upon which they can be evaluated such as content, writing style,
+            length of the answer, grammar and keywords. This will be done by Text analyzer. This
+            Text analyzer will use machine learning and natural language processing to analyze
+            answers. It has two main roles:</p>
+              <br>
+        <a href="#" class="btn btn-lg-primary"></a>
+        </div>
+        <div class="col-lg-6">
+          <img src="/images/urt.png" class="img-fluid">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- fixed background-->
+    
+    <figure>  
+      <div class="col-md-12 ">
+      <div class="fixed-wrap">
+        <div id="fixed">
+        </div>
+      </div>
+    </div>
+    </figure>
+
+    <!--meet the team-->
+    <hr>
+    <br>
+    <br>
+    <div class="container-fluid padding">
+      <div class="row welcome text-center">
+        <div class="col-12">
+          <h1 class="display-4">Meet the  Team</h1>
+        </div>
+        <hr style="width: 50%;">
+        <!-- team card-->
+          <br>
+    <br>
+        <div class="container-fluid padding">
+          <div class="row padding">
+
+            <div class="col-md-4 d-flex">
+              <div class="card text-white bg-danger mb-3">
+                <img class="card-img-top" src="/images/kapil.jpeg">
+                <div class="card-body `">
+
+                  <h4 class="card-title">Kapil Chahal</h4>
+                  <p>Loves travelling and the best part bout travelling is exploring new things and friends. Open for suggestions</p>
+                  <a href="#" class="btn btn-outline-light">See Profile</a>
+                </div>
+              </div>
+          
+            </div>
+
+            <div class="col-md-4 d-flex">
+              <div class="card text-white bg-danger mb-3">
+                <img class="card-img-top " src="/images/palak.jpeg">
+                <div class="card-body ">
+                  <h4 class="card-title">Palak Singh</h4>
+                  <p>This is me Palak Singh a tech lover and love reading ;)</p>
+                  <a href="#" class="btn btn-outline-light">See Profile</a>
+                </div>
+              </div>
+          
+            </div>
+
+            <div class="col-md-4 d-flex">
+              <div class="card text-white bg-danger mb-3">
+                <img class="card-img-top" src="/images/Maaz.jpg">
+                <div class="card-body ">
+                  <h4 class="card-title">Maaz Rahman</h4>
+                  <p>hi! I love paani puri and like to hangout with new people new culture. Positive vibes only </p>
+                  <a href="#" class="btn btn-outline-light">See Profile</a>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<br>
+<br>
+<hr class="display-4">
+    <!--connect--->
+   <div class="container-fluid padding">
+     <div class="row text-center padding">
+       <div class="col-12">
+        <h1>Connect</h1>
+      </div>
+      <div class="col-md-2 social padding">
+        <a href="https://www.facebook.com/kapil.chahal.96/"><i class="fab fa-facebook"></i></a>
+      </div>
+      <div class="col-md-2 social padding">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <div class="col-md-2 social padding">
+        <a href="https://www.instagram.com/chahal_sab__/"><i class="fab fa-instagram "></i></a>
+      </div>
+      <div class="col-md-2 social padding">
+        <a href="#"><i class="fab fa-youtube "></i></a>
+      </div>
+      <div class="col-md-2 social padding">
+         <a href="#"><i class="fab fa-google-plus-g"></i></a>
+      </div>
+    </div>
+   </div>
+<br>
+<br>
+<br>
+   <!--footer-->
+   <footer style="background-color: #333333;">
+     <div class="container-fluid padding">
+       <div class="row text-center padding">
+         <div class="col-md-4">
+
+          <hr class="light">
+          <p>+91-8095696245</p>
+          <p>kapil14@gmail.com</p>
+          <p>sanjay nagar</p>
+          <p>marthahalli</p>
+          <p>560037</p>
+          </div>
+          <div class="col-md-4">
+            <hr class="light">
+            <h5>Our hours</h5>
+            <hr class="light">
+            <p>we are open 24</p>
+          </div>
+          <div class="col-md-4">
+
+          <hr class="light">
+          <p>560037</p>
+          <p>560044</p>
+          <p>560087</p>
+          <p>562210</p>
+          <p>568856</p>
+       </div>
+       <div class="col-12">
+         <hr class="light">
+         <h5 style="text-align: center;"><i class="fas fa-map-marker-alt" style=" align-self: initial; text-align: left;"> </i> India 2020  &copy; ATE Inc. All rights reserved</h5>
+       </div>
+     </div>
+   </footer>
+
+  </body>
+
+
+<script type="text/javascript" src="/eel.js"></script>
+
+<script>
+
+function closechat(){
+  document.getElementById("chat-container").style.display="none";
+
+}
+
+function open_chat(){
+    document.getElementById("chat-container").style.display="block";
+    $('.message-row').last().after(mac_reply("welcome"));
+  }
+
+// Get the element
+
+function clone(){
+
+    var query=document.getElementById("query").value;
+
+    // Inject it into the DOM
+    $('.message-row').last().after(user_reply(query));
+    document.getElementById("query").value="";
+
+    $('#chat-message-list').scrollTop($('#chat-message-list')[0].scrollHeight);
+
+    //call py func and store in loc var
+    var reply=eel.chat(query)();
+
+    var response;
+    reply.then(function(res){
+        response=res;
+      
+        $('.message-row').last().after(mac_reply(response));
+        $('#chat-message-list').scrollTop($('#chat-message-list')[0].scrollHeight);
+        if(response=='bye'){
+          closechat();
+        }
+
+    });
+    //after message-row add mac_reply()
+
+}
+
+function user_reply(text){
+    var today=new Date();
+    return `   <div class="message-row you-message">
+            <div class="message-content">
+                <div class="message-text abc" id="user">${text}
+                </div>
+                <div class="message-time">Date:${today.getUTCDay()}/${today.getUTCMonth()}/${today.getFullYear()} Time:${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}</div>
+            </div>
+        </div>`  
+}
+
+function mac_reply(text){
+    var today=new Date();
+
+    return `  <div class="message-row other-message">
+            <div class="message-content">
+                <div class="message-text abc" id="machine">${text}
+                </div>
+                <div class="message-time">Date:${today.getUTCDay()}/${today.getUTCMonth()}/${today.getFullYear()} Time:${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}</div>
+            </div>
+        </div>`
+}
+ 
+  </script>
+</html>

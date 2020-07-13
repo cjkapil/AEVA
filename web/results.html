@@ -1,0 +1,166 @@
+<html>
+    <title>
+      Results
+    </title>
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="mainstyle.css">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="jquery-3.4.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <style>
+
+          .navbar-brand{
+          max-width: 4rem;
+          max-height: 4rem;
+          }
+
+          .res{
+            padding: 2rem;
+            width: 8rem;
+            height: 2rem;
+            border: 2px solid rgb(100, 99, 99);
+            
+            color: rgb(80, 80, 80);
+          }
+
+          .textarea{
+              padding:2rem;
+              width: 30rem;
+              height: 20rem;
+              border-collapse: collapse;
+              border-width: 2px; 
+              color: rgb(80, 80, 80);
+          }
+
+          .result{
+              color: rgb(102, 102, 100);
+              
+          }
+         
+      </style>
+
+    </head>
+
+    <body>
+     <div class="container-css">       
+    <nav class="navbar navbar-custom navbar-inverse navbar-expand-md navbar-dark sticky-top "> 
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="img-fluid" src="/images/Icon-OCR-blue.png"></a> 
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon">
+
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" style="color: #ffffff;" href="home.html">HOME</a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link" href="#">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">LOGIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">OCR</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">SUPPORT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CONNECT</a>
+            </li>             
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  
+
+    <div class="container-fluid padding" style="text-align: center;">
+        <h1 style="text-align: center; padding-top: 1.5rem; color: #646464;	font-family: Times;
+
+        ">Recoganised Text</h1>
+        <div class="row text-center padding" style="text-align: center;">
+         <div class="col-12" id="output" style="padding: 1rem; background-image: url('images/career_section.jpg');">
+            <textarea class="textarea" id="op" style="font-size: 1.2rem; font-family: Times" ></textarea>
+          </div>
+          <div class="container container-fluid" id="marks" style=" text-align: center;font-size: 1.5rem; padding-top: 1rem; font-family: Times; color: #646464;">
+            <p style="font-size: 2rem;"> Results:</p>
+              <div class="res" style="display: inline;" id="score"> </div>
+              <span class="text" style="font-size: 2rem; margin: 1rem;">of</span>
+              <div class="res" style="display: inline;" id="totalscore"> </div>
+         
+            </div>
+         </div>
+        
+        <a href="topic.html"><button type="button" class="btn btn-danger btn-lg" style="color: rgb(255, 255, 255); ">Try Again</button></a>
+    </div>
+        
+
+    </body>
+    <script type="text/javascript" src="/eel.js"></script>
+
+    <script type="text/javascript">
+
+    var text=window.localStorage.getItem("recognizedtext");
+    var score=window.localStorage.getItem("finalscore");
+    var essay=window.localStorage.getItem("essayno");
+    console.log("essayno=",essay);
+    document.getElementById("op").innerHTML=text;
+    document.getElementById("score").innerHTML=score;
+
+    if(essay==1){
+      document.getElementById("totalscore").innerHTML=4;
+
+    }
+
+    if(essay==2){
+      document.getElementById("totalscore").innerHTML=4;
+
+    }
+
+    if(essay==3){
+      document.getElementById("totalscore").innerHTML=3;
+
+    }
+
+    if(essay==4){
+      document.getElementById("totalscore").innerHTML=4;
+
+    }
+
+    if(essay==5){
+      document.getElementById("totalscore").innerHTML=4;
+
+    }
+
+    if(essay==6){
+      document.getElementById("totalscore").innerHTML=4;
+
+    }
+
+    if(essay==7){
+      document.getElementById("totalscore").innerHTML=8;
+
+    }
+    if(essay==8){
+      document.getElementById("totalscore").innerHTML=10;
+
+    }
+    </script>
+</html>

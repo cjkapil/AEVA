@@ -1,0 +1,44 @@
+
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+
+li{
+		background: red;
+	}
+
+	.blur {
+		filter: blur(10px);
+
+	}
+    </style>
+</head>
+<body>
+<input type="text" id="mytext">
+
+	<ul>
+		<li>lorem</li>
+		<li>lorem</li>
+		<li>lorem</li>
+		<li>lorem</li>
+		<li>lorem</li>
+	</ul>
+
+	<p>bero praesentium quibusdam tempora molestiae nesciunt, unde, molestias quam? Commodi.</p>
+    </body>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#mytext').focus(function(){
+                $('body').find('*').not('#mytext').addClass('blur');
+            });
+    
+            $('#mytext').blur(function(){
+                $('body').find('*').not('#mytext').removeClass('blur');
+            });
+    
+    
+        });
+    </script>
+    </html>

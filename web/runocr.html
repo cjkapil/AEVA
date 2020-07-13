@@ -1,0 +1,203 @@
+<html>
+    <title>
+        run ocr
+    </title>
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="jquery-3.4.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <style>
+          .image-preview{
+            width: 500px;
+            height: 500px;
+            border: 2px solid #a1a1a1;
+            display: flex;
+            align-content: center;
+            margin-left: 45%;
+            margin-top: 1rem;
+            text-align: center;
+            overflow-y: scroll;
+          /*default text*/
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-weight:bold;
+          color: #cccccc;
+          }
+
+          .navbar-brand{
+          max-width: 4rem;
+          max-height: 4rem;
+          }
+
+          .image-preview__image{
+            display: none;
+            width: 100%;
+            align-content: center;
+
+          }
+
+         
+      </style>
+
+    </head>
+
+    <body>
+            
+    <nav class="navbar navbar-custom navbar-inverse navbar-expand-md navbar-dark sticky-top "> 
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="img-fluid" src="/images/Icon-OCR-blue.png"></a> 
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+          <span class="navbar-toggler-icon">
+
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link"  href="home.html">HOME</a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link" href="#">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">LOGIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">OCR</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">SUPPORT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CONNECT</a>
+            </li>             
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+          <!--upload image-->
+          
+          <div class="col-12 abc" id="outgear" style=" z-index: 99; display: none; position: absolute; text-align: center; top: 25%;">
+            <i class="fa fa-gear fa-spin" id="gear" style="color: #dd4145; font-size: 20rem; "></i>
+          </div>
+
+          <div class="container-fluid padding">
+          <div class="row text-center" style="text-align: center;">
+           <div class="col-8" style="text-align: center;">
+              <div class="image-preview" id="imagePreview" style="text-align: center;">
+                <img src="" alt="Image Preview" class="image-preview__image" style="text-align: center;">
+                
+                
+                <span class="image-preview__default-text" style=" align-content: center;">Image preview</span>
+            </div>
+            </div>
+          </div>
+          </div>
+          <div class="continer-fluid padding">
+            <div class="row text-center padding">
+              
+            <div class="col-12">
+              <input type="file" name="inpFile" id="inpFile" hidden="hidden">
+              <button type="button" class="btn btn-dark btn-lg" id="inpButton" style="border-radius: 40px 40px 40px 40px;">Select File</button>
+              <a href="results.html"><button type="button" class="btn btn-danger btn-lg" id="evalButton" onclick="RunOCR(); showgear();" style="border-radius: 30px 30px 30px 30px;">Run OCR</button>
+              </a>
+              
+            </div>
+          </div>
+          </div>      
+      </body>
+
+      <script type="text/javascript" src="/eel.js"></script>
+
+        <script>
+          
+          const customButton=document.getElementById("inpButton");
+          const inpFile=document.getElementById("inpFile");
+          const previewContainer=document.getElementById("imagePreview");
+          const previewImage=previewContainer.querySelector(".image-preview__image");
+          const previewDefaultText=previewContainer.querySelector(".image-preview__default-text");
+          const runocr=document.getElementById("Runocr");
+          var foo;
+
+          customButton.addEventListener("click",function(){
+            inpFile.click();
+          });
+
+          inpFile.addEventListener("change",function(){
+            const file=this.files[0];
+            //console.log(this.files[0])
+            var fname = this.files[0].name;
+
+            if(file){
+              const reader=new FileReader();
+              previewDefaultText.style.display="none";
+              previewImage.style.display="block";
+
+              reader.addEventListener("load",function(){
+                
+                previewImage.setAttribute("src",this.result);
+                if(this.result && localStorage){
+                  //window.localStorage.setItem("fname",fname);
+                  alert(fname)
+                  foo=fname;
+                }
+                else
+                  alert();
+                
+              });
+
+              reader.readAsDataURL(file);
+            }
+            else{
+              previewDefaultText.style.display=null;
+              previewImage.style.display=null;
+              previewImage.setAttribute("src","");
+            }
+
+          });
+        
+        function showgear(){
+
+          document.getElementById("outgear").style.display="block";
+
+           $('body').find('*').not('#outgear').addClass('blur');
+           //$('body *').not('#gear').addClass('blur');
+          
+
+         
+        }
+      
+        function RunOCR(){
+            eel.ocr(foo);
+          }
+
+          eel.expose(ocrreply);               // Expose this function to Python
+        function ocrreply(RecognisedText) {
+          window.localStorage.setItem("recognizedtext",RecognisedText);
+            console.log("recieved reply from ocr\n" + RecognisedText);
+        }
+
+        eel.expose(reply);               // Expose this function to Python
+        function reply(finalscore) {
+          window.localStorage.setItem("finalscore",finalscore);
+            console.log("recieved reply from text analyzer\n" + finalscore);
+        }
+
+        </script>
+</html>
