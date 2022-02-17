@@ -118,6 +118,4 @@ def chat(text):
         print(random.choice(responses))
         return(random.choice(responses))
     else:
-        print("sorry could not understand you")  
-
         return("sorry could not understand you")  
